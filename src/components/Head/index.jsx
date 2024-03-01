@@ -30,9 +30,11 @@ const Head = () => {
         return <p>Error</p>
     }
 
+    const titlePage = settings.generalSettingsTitle !== " " ? settings.generalSettingsTitle : "My default title";
+
     return(
         <Helmet>
-            <title>{settings.generalSettingsTitle}</title>
+            <title>{titlePage}</title>
             <meta name="description" content={settings.generalSettingsDescription} />
             <meta name="theme-color" content="#FF0000"/>
         </Helmet>
