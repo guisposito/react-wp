@@ -1,18 +1,5 @@
 import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
-
-const POSTS_QUERY = gql`
-query PostsQuery {
-    posts {
-      nodes {
-        id
-        date
-        title
-        content
-      }
-    }
-  }
-`;
+import { POSTS_QUERY } from "../../api/queries";
 
 const Posts = () => {
     const { loading, error, data } = useQuery(POSTS_QUERY);

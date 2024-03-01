@@ -1,6 +1,6 @@
 import { ApolloProvider } from "@apollo/react-hooks"
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { SEO, Header, Footer, Posts }  from "./components";
+import { SEO, Header, Footer, Posts , AuthorCard}  from "./components";
 import { HelmetProvider } from 'react-helmet-async';
 
 
@@ -20,6 +20,7 @@ function App() {
         <HelmetProvider context={helmetContext}>
           <SEO />
           <Header />
+          <AuthorCard  />
           <Posts />
         </HelmetProvider>
       </ApolloProvider>

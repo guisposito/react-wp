@@ -1,24 +1,7 @@
 import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import { SETTINGS_QUERY } from "../../api/queries"
 import { Helmet } from "react-helmet-async";
 
-
-
-const SETTINGS_QUERY  = gql`
-query SettingsQuery {
-    writingSettings {
-      defaultCategory
-      defaultPostFormat
-      useSmilies
-    }
-    allSettings {
-      generalSettingsTitle
-      generalSettingsDescription
-      generalSettingsUrl
-    }
-  }
-
-`;
 
 const SEO = ({ title, description, canonical, robots }) => {
     const { loading, error, data } = useQuery(SETTINGS_QUERY);
