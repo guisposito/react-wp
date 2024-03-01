@@ -1,6 +1,9 @@
 import { ApolloProvider } from "@apollo/react-hooks"
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { Head, Header, Footer, Posts }  from "./components";
+import { SEO, Header, Footer, Posts }  from "./components";
+import { HelmetProvider } from 'react-helmet-async';
+
+
 
 const client = new ApolloClient({
   uri: "http://meu-wp.local/graphql",
@@ -9,13 +12,18 @@ const client = new ApolloClient({
 
 
 function App() {
+  const helmetContext = {};
+
   return (
     <div>
       <ApolloProvider client={client}>
-      <Head />
-      <Header />
-      <Posts />
+        <HelmetProvider context={helmetContext}>
+          <SEO />
+          <Header />
+          <Posts />
+        </HelmetProvider>
       </ApolloProvider>
+      
       <Footer/>
     </div>
   );
